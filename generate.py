@@ -1,8 +1,6 @@
 import os
-import time
 
-os.system('rm -rf src/xhash.txt && rm -rf src/xhashvar.txt && rm -rf src/xhashdict.txt && rm -rf src/xhash.json')
-time.sleep(1)
+os.system('rm -rf src/xhash.txt && rm -rf src/xhashvar.txt')
 
 alphalo = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 alphaup = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
@@ -32,37 +30,3 @@ with open('src/xhashvar.txt', 'w') as f:
         else:
             f.write("\'" + i + "\'" + " = " + "0x" + str(0) + str(x))
             f.write('\n')
-
-
-x = 0
-with open('src/xhashdict.txt', 'w') as f:
-    f.write("{")
-    f.write('\n')
-    for i in alphalo + alphaup + numbers + spechar:
-        x += 1
-        if x > 9:
-            f.write("   '0x" + str(x) + "'" + ": " + "\'" + i + "\'" + ",")
-            f.write('\n')
-        else:
-            f.write("   '0x" + str(0) + str(x) + "'" + ": " + "\'" + i + "\'" + ",")
-            f.write('\n')
-    f.write("   '0x" + str(x) + "'" + ": " + "\'" + i + "\'")
-    f.write('\n')
-    f.write("}")
-
-
-x = 0
-with open('src/xhash.json', 'w') as f:
-    f.write("{")
-    f.write('\n')
-    for i in alphalo + alphaup + numbers + spechar:
-        x += 1
-        if x > 9:
-            f.write("   '0x" + str(x)  + "'" + ": " + "\'" + i + "\'" + ",")
-            f.write('\n')
-        else:
-            f.write("   '0x" + str(0) + str(x)  + "'" + ": " + "\'" + i + "\'" + ",")
-            f.write('\n')
-    f.write("   '0x" + str(x)  + "'" + ": " + "\'" + i + "\'")
-    f.write('\n')
-    f.write("}")
