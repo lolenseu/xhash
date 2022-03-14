@@ -4,8 +4,8 @@ import json
 import urllib.request
 
 version = json.loads(open('../src/version.json', "r").read())
-rxh1 = json.loads(open('../src/rxh1.json', "r").read())
-xh1 = json.loads(open('../src/xh1.json', "r").read())
+rxh1 = json.loads(open('../src/xh1/rxh1.json', "r").read())
+xh1 = json.loads(open('../src/xh1/xh1.json', "r").read())
 
 os.system('clear')
 print("Verifying Software Version...")
