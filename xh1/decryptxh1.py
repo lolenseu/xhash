@@ -40,43 +40,50 @@ def ifversionok():
         print("Please Update your Software!")
         exit()
 
-#Encrypting procces.
+#Decrypting procces.
 def mainprocces():
     global data
 
-    #Input file or text from the user.
+    #Input file from the user.
     os.system('clear')
-    print("Type y to encrypt with file and x to encrypt with text")
-    qchoice = input("Enter your choice: ").lower()
+    fdata = input("Enter your File or Directory: ")
 
-    if qchoice == 'y':
-        fdata = input("Enter your File or Directory: ")
+    if fdata[-4:] == '.xh1':
         data = open(fdata, 'r').read()
-    elif qchoice == 'x':
-        tdata = input("Enter a Text: ")
-        data = tdata
     else:
         os.system('clear')
-        print("Enter a valid choice!")
+        print("Enter a valid file!")
         time.sleep(2)
         mainprocces()
 
-    #Generating new file to save the hash.
+    #Checking the file.
+    if data[:2] != '0x':
+        os.system('clear')
+        print("Ops! Your file are invalid or corrupted,\nMake sure it start wtih \"0x\", Example: \"0x00000000\".")
+        exit()
+    else:
+        pass
+
+    #Generating new file to save the decrypted hash.
     time.sleep(3)
     genfilename = ''.join((random.choice('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890') for i in range(8)))
-    filename = genfilename + '.xh1'
+    filename = genfilename
     a = open(filename, 'w')
-    a.write('0x')
 
-    #Starting the ncrypting procces.
+    #Starting the decrypting procces.
+    numsdata = data[2:]
+    countdata = data[3:]
+    countdata = len(countdata) / 2
     counter = 0
-    for i in range(len(data)):
-        procces = data[counter]
-        strap = xh1[procces]
-        a.write(strap[2:])
-        counter += 1
+    counter2 = 2
+    for i in range(int(countdata)):
+        procces = '0x' + numsdata[counter:counter2]
+        strap = rxh1[procces]
+        a.write(strap)
+        counter += 2
+        counter2 += 2
 
-    print("Encrypting Done!")
+    print("Decrypting Done!")
 
 
 ifversionok() #Put hashtag here to cancel or bypass the version verification!, example: "#ifversionok()".
