@@ -9,7 +9,7 @@ XHash is a simple Encrypting and Decrypting tool build in Python.
 - xh1 or xhash1 are the version 1.0 of the tool.
 
 
-# How to clone
+## How to clone
 ```BASHc
 git clone https://github.com/lolenseu/xhash.git
 cd xhash
@@ -17,7 +17,7 @@ chmod +x update.sh
 ```
 
 
-# How to use
+## How to use
  Decrypting
  ```BASHc
 python3 encryptxh1.py
@@ -28,7 +28,7 @@ python3 decryptxh1.py
 ```
 
 
-# Sample Screenshots and Steps to Use
+## Sample Screenshots and Steps to Use
 ### "Encrypting" Make a file 
 ![Screenshot_2022-03-16_03-50-20](https://user-images.githubusercontent.com/98665691/158477378-88c82baf-1930-463f-b94c-08bec186a307.png)
 ### Add a content to the file
@@ -52,7 +52,7 @@ python3 decryptxh1.py
 - You can modify or copy and apply to your code and projects you wish. Its free to use!
 
 
-# Update and Bug Fixed
+## Update and Bug Fixed
 Update:
 - File name generation
 
@@ -61,7 +61,11 @@ Fixed:
 - Dictionary
 
 
-# Versions
+## Future Updates
+- xh2 a version 2.0 (Features: new encryption process, adding a small amount of security hashing process, and some changes in cli.)
+
+
+## Versions
 
  - 1.1 - 3-16-2022 Latest
  - 1.0 - 3-12-2022
