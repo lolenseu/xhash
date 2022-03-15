@@ -4,8 +4,9 @@
 
 # XHASH
 XHash is a simple Encrypting and Decrypting tool build in Python.
-- XHash are using its own xh1 or xhash1 converting process just like acsii or base64 converting process.
-- xh1 or xhash1 are the version 1.0 of the tool
+- XHash are using its own xh1 or xhash1 converting process just like ascii or base64 converting process.
+- XHash are free to use and opensource tool/software.
+- xh1 or xhash1 are the version 1.0 of the tool.
 
 
 # How to clone
@@ -53,14 +54,14 @@ python3 decryptxh1.py
 
 # Update and Bug Fixed
 Update:
-- file name generation
+- File name generation
 
 Fixed:
-- json files
-- dictionary
+- Json files
+- Dictionary
 
 
 # Versions
 
- - 1.1 - 3-16-2022 latest
+ - 1.1 - 3-16-2022 Latest
  - 1.0 - 3-12-2022
