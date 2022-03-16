@@ -1,5 +1,6 @@
 <a href="https://github.com/lolenseu/xhash"><img src="https://img.shields.io/badge/license-MIT License-orange"></a> 
 <a href="https://github.com/lolenseu/xhash"><img src="https://img.shields.io/badge/OPEN--SOURCE-YES-green"></a>
+<a href="https://github.com/lolenseu/xhash/releases"><img src="https://img.shields.io/github/v/release/lolenseu/xhash"></a>
 
 
 # XHASH
@@ -18,12 +19,12 @@ chmod +x update.sh
 
 
 ## How to use
- Decrypting
- ```BASHc
+ Encrypting
+```BASHc
 python3 encryptxh1.py
 ```
- Encrypting
-  ```BASHc
+ Decrypting
+```BASHc
 python3 decryptxh1.py
 ```
 
@@ -45,9 +46,9 @@ python3 decryptxh1.py
 
 ## Notice
 - Before you use the tools, don't forget to edit and disable the encryptxh1.py and decryptxh1.py update checker below each file! (Why this is enabled? - To inform you to each update or release from the github repository)
-- Don't update immediately the tool if thers is a new update this may cause an error in the encryption process, decrypt fist to the version you used in the encryption process!
-- Don't lost your "filename.xh1" file because we don't give a backup to each encrypted file!
-- Don't edit the encryted file it may couse a error or corrupted error that can't read in encryption process!
+- Don't update immediately the tool if there is a new update this may cause an error in the encryption process, decrypt fist to the version you used in the encryption process!
+- Don't lost your "filename.xh1" file because we don't make any backup to each encrypted file!
+- Don't edit the encryted "filename.xh1" file it may couse a error or corrupted error that can't or unable read in encryption process!
 - You can rename your file after the encryption process but make sure that have ".xh1" extention.
 - You can modify or copy and apply to your code and projects you wish. Its free to use!
 
