@@ -66,6 +66,7 @@ def mainprocces():
 
     #Generating new file to save the decrypted hash.
     time.sleep(3)
+    print("Decrypting...")
     genfilename = ''.join((random.choice('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890') for i in range(8)))
     filename = genfilename
     a = open(filename, 'w')
@@ -84,6 +85,7 @@ def mainprocces():
         counter2 += 2
 
     print("Decrypting Done!")
+    print("Your Decryted file save to: " + str(filename))
 
 
 ifversionok() #Put hashtag here to cancel or bypass the version verification!, example: "#ifversionok()".
