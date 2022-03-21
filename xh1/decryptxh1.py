@@ -85,7 +85,7 @@ def mainprocces():
         counter2 += 2
 
     print("Decrypting Done!")
-    print("Your Decryted file save to: " + str(filename))
+    print("Your Decrypted file saved to: " + str(filename))
 
 
 ifversionok() #Put hashtag here to cancel or bypass the version verification!, example: "#ifversionok()".
