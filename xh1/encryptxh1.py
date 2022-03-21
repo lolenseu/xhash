@@ -63,6 +63,7 @@ def mainprocces():
 
     #Generating new file to save the hash.
     time.sleep(3)
+    print("Encrypting...")
     genfilename = ''.join((random.choice('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890') for i in range(8)))
     filename = genfilename + '.xh1'
     a = open(filename, 'w')
@@ -77,6 +78,7 @@ def mainprocces():
         counter += 1
 
     print("Encrypting Done!")
+    print("Your Encrypted file saved to: " + str(filename))
 
 
 ifversionok() #Put hashtag here to cancel or bypass the version verification!, example: "#ifversionok()".
