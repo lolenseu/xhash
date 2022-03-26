@@ -1,6 +1,5 @@
 <a href="https://github.com/lolenseu/xhash"><img src="https://img.shields.io/badge/license-MIT License-orange"></a> 
 <a href="https://github.com/lolenseu/xhash"><img src="https://img.shields.io/badge/OPEN--SOURCE-YES-green"></a>
-<a href="https://github.com/lolenseu/xhash/releases"><img src="https://img.shields.io/github/v/release/lolenseu/xhash"></a>
 
 
 # XHASH
@@ -14,7 +13,7 @@ XHash is a simple Encrypting and Decrypting tool build in Python.
 ```BASHc
 git clone https://github.com/lolenseu/xhash.git
 cd xhash
-chmod +x update.sh
+chmod +x bash-scrypts/update.sh
 ```
 
 
@@ -55,11 +54,12 @@ python3 decryptxh1.py
 
 ## Update and Bug Fixed
 Update:
-- File name generation
+- Update Dictionary
+- 3 Characters Encryption
+- Decrypted and Encrypted file storage
 
 Fixed:
-- Json files
-- Dictionary
+- Non readable keys
 
 
 ## Future Updates
@@ -68,5 +68,17 @@ Fixed:
 
 ## Versions
 
- - 1.1 - 3-16-2022 Latest
- - 1.0 - 3-12-2022
+### xh1 (xhash1)
+ - v1.2 Latest
+ - v1.1
+ - v1.0
+
+### xh2 (xhash2)
+ - vNone Latest
+
+### XHash (repository version)
+![Check Here!](https://github.com/lolenseu/xhash/releases)
+
+ - 3-27-2022 Latest
+ - 3-16-2022
+ - 3-12-2022
