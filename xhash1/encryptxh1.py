@@ -5,8 +5,7 @@ import random
 import urllib.request
 
 #Files needed to run the program.
-version = json.loads(open('../src/version.json', "r").read())
-rxh1 = json.loads(open('../src/xh1/rxh1.json', "r").read())
+version = json.loads(open('../src/xh1/version.json', "r").read())
 xh1 = json.loads(open('../src/xh1/xh1.json', "r").read())
 
 #Version verification and other files needed.
@@ -18,9 +17,8 @@ def ifversionok():
     getversion = False
     while not getversion:
         try:
-            global gitrawversion, gitrawrxh1, gitrawxh1
-            gitrawversion = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/lolenseu/xhash/main/src/version.json').read())
-            gitrawrxh1 = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/lolenseu/xhash/main/src/xh1/rxh1.json').read())
+            global gitrawversion, gitrawxh1
+            gitrawversion = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/lolenseu/xhash/main/src/xh1/version.json').read())
             gitrawxh1 = json.loads(urllib.request.urlopen('https://raw.githubusercontent.com/lolenseu/xhash/main/src/xh1/xh1.json').read())
             getversion = True
         except:
@@ -32,7 +30,7 @@ def ifversionok():
     print("Checking your Software...")
     time.sleep(2)
 
-    if version == gitrawversion and xh1 == gitrawxh1 and rxh1 == gitrawrxh1:
+    if version == gitrawversion and xh1 == gitrawxh1:
         os.system('clear')
         pass
     else:
@@ -66,7 +64,7 @@ def mainprocces():
     print("Encrypting...")
     genfilename = ''.join((random.choice('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890') for i in range(8)))
     filename = genfilename + '.xh1'
-    a = open(filename, 'w')
+    a = open(f'encrypted-files/{filename}', 'w')
     a.write('0x')
 
     #Starting the ncrypting procces.
@@ -78,7 +76,8 @@ def mainprocces():
         counter += 1
 
     print("Encrypting Done!")
-    print("Your Encrypted file saved to: " + str(filename))
+    print("Your Encrypted file saved to: " + "encrypted-files/" + str(filename))
+    exit()
 
 
 ifversionok() #Put hashtag here to cancel or bypass the version verification!, example: "#ifversionok()".
