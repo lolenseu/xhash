@@ -2,6 +2,7 @@ import os
 import time
 import json
 import random
+from unittest import result
 import urllib.request
 
 #Files needed to run the program.
@@ -38,16 +39,30 @@ def ifversionok():
         print("Please Update your Software!")
         exit()
 
+#Decrypting cli animation.
+def animation(starttime, procces, result):
+    os.system('clear')
+    timeanimation = "%s sec" % (int(time.time()) - int(starttime))
+    loadinganimation = "".join(random.choice("\\|/-"))
+    print(f"[{timeanimation}] Decrypting {loadinganimation} --> Reading {procces} {result}")
+
 #Decrypting procces.
 def mainprocces():
-    global data
+    global inputdata, workdata, data
 
     #Input file from the user.
     os.system('clear')
-    fdata = input("Enter your File or Directory: ")
+    filedata = input("Enter your File or Directory: ").rstrip(' ')
 
-    if fdata[-4:] == '.xh1':
-        data = open(fdata, 'r').read()
+    if filedata[-4:] == '.xh1':
+        workdata = 'File'
+        try:
+            data = open(filedata, 'r').read()
+        except:
+            print(f"No such File or Directory: {filedata},\nMaybe {workdata} not xh1 format.")
+            time.sleep(5)
+            mainprocces()
+
     else:
         os.system('clear')
         print("Enter a valid file!")
@@ -57,35 +72,54 @@ def mainprocces():
     #Checking the file.
     if data[:2] != '0x':
         os.system('clear')
-        print("Ops! Your file are invalid or corrupted,\nMake sure it start wtih \"0x\", Example: \"0x00000000\".")
+        print(f"Ops! Your {workdata} are invalid or corrupted,\nMake sure it start wtih \"0x\", Example: \"0x000000000\".\nMaybe {workdata} not xh1 format.")
         exit()
     else:
         pass
 
     #Generating new file to save the decrypted hash.
-    time.sleep(3)
-    print("Decrypting...")
     genfilename = ''.join((random.choice('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890') for i in range(8)))
     filename = genfilename
     a = open(f'decrypted-files/{filename}', 'w')
+
+    #Clearing the cli for decrypting procces.
+    os.system('clear')
+    print("Start Decrypting...")
+    time.sleep(2)
+    starttime = time.time()
 
     #Starting the decrypting procces.
     numsdata = data[2:]
     countdata = data[2:]
     countdata = len(countdata) / 3
     counter1 = 0
-    counter2 = 3
-    for i in range(int(countdata)):
-        procces = '0x' + numsdata[counter1:counter2]
-        strap = xh1[procces]
-        a.write(strap)
-        counter1 += 3
-        counter2 += 3
+    counter2 = 0
+    counter3 = 3
+    while counter1 < countdata:
+        procces = '0x' + numsdata[counter2:counter3]
+        try:
+            strap = xh1[procces]
+            a.write(strap)
+            counter1 += 1
+            counter2 += 3
+            counter3 += 3
+            result = 'ok!'
+            animation(starttime, procces, result)
+        except:
+            result = 'error!'
+            os.system(f'rm -rf decrypted-files/{filename}')
+            animation(starttime, result, result)
+            print(f"[{result}] Can't Read \'{procces}\'!\nYour {workdata} are corrupted or \'{procces}\' are not in Dictionary.")
+            print(f"Solution: Try to Decrypt your {workdata} to the version you encrypted.")
+            exit()
 
-    print("Decrypting Done!")
+    #Decrypting Done!
+    os.system('clear')
+    endtime = "[%s sec] " % (int(time.time()) - int(starttime))
+    print(endtime + "Decrypting Done!")
     print("Your Decrypted file saved to: " + "decrypted-files/" + str(filename))
     exit()
 
 
-ifversionok() #Put hashtag here to cancel or bypass the version verification!, example: "#ifversionok()".
+#ifversionok() #Put hashtag here to cancel or bypass the version verification!, example: "#ifversionok()".
 mainprocces()

@@ -38,21 +38,38 @@ def ifversionok():
         print("Please Update your Software!")
         exit()
 
+#Encrypting cli animation.
+def animation(starttime, strap, result):
+    os.system('clear')
+    timeanimation = "%s sec" % (int(time.time()) - int(starttime))
+    loadinganimation = "".join(random.choice("\\|/-"))
+    print(f"[{timeanimation}] Encrypting {loadinganimation} --> Writing {strap} {result}")
+
 #Encrypting procces.
 def mainprocces():
-    global data
+    os.system('clear')
+    global inputdata, workdata, data
 
     #Input file or text from the user.
-    os.system('clear')
-    print("Type y to encrypt with file and x to encrypt with text")
+    print("Type z to encrypt with file and x to encrypt with text")
     qchoice = input("Enter your choice: ").lower()
 
-    if qchoice == 'y':
-        fdata = input("Enter your File or Directory: ")
-        data = open(fdata, 'r').read()
+    if qchoice == 'z':
+        os.system('clear')
+        filedata = input("Enter your File or Directory: ").rstrip(' ')
+        workdata = 'File'
+        try:
+            data = open(filedata, 'r').read()
+        except:
+            print(f"No such File or Directory: {filedata},\nMaybe {workdata} not utf-8 format.")
+            time.sleep(5)
+            mainprocces()
+
     elif qchoice == 'x':
-        tdata = input("Enter a Text: ")
-        data = tdata
+        os.system('clear')
+        textdata = input("Enter a Text: ")
+        workdata = 'Text'
+        data = textdata
     else:
         os.system('clear')
         print("Enter a valid choice!")
@@ -60,25 +77,43 @@ def mainprocces():
         mainprocces()
 
     #Generating new file to save the hash.
-    time.sleep(3)
-    print("Encrypting...")
     genfilename = ''.join((random.choice('qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890') for i in range(8)))
     filename = genfilename + '.xh1'
     a = open(f'encrypted-files/{filename}', 'w')
     a.write('0x')
 
-    #Starting the ncrypting procces.
-    counter = 0
-    for i in range(len(data)):
-        procces = data[counter]
-        strap = xh1[procces]
-        a.write(strap[2:])
-        counter += 1
+    #Clearing the cli for encrypting procces.
+    os.system('clear')
+    print("Start Encrypting...")
+    time.sleep(2)
+    starttime = time.time()
 
-    print("Encrypting Done!")
+    #Starting the encrypting procces.
+    countdata = len(data)
+    counter = 0
+    while counter < countdata:
+        procces = data[counter]
+        try:
+            strap = xh1[procces]
+            a.write(strap[2:])
+            counter += 1
+            result = 'ok!'
+            animation(starttime, strap, result)
+        except:
+            result = 'error!'
+            os.system(f'rm -rf encrypted-files/{filename}')
+            animation(starttime, result, result)
+            print(f"[{result}] Can't Write \'{procces}\'!\nYour {workdata} not utf-8 format or \'{procces}\' are not in Dictionary.")
+            print(f"Solution: Check if your {workdata} contain a non-readable characters.")
+            exit()
+
+    #Encrypting Done!
+    os.system('clear')
+    endtime = "[%s sec] " % (int(time.time()) - int(starttime))
+    print(endtime + "Encrypting Done!")
     print("Your Encrypted file saved to: " + "encrypted-files/" + str(filename))
     exit()
 
 
-ifversionok() #Put hashtag here to cancel or bypass the version verification!, example: "#ifversionok()".
+#ifversionok() #Put hashtag here to cancel or bypass the version verification!, example: "#ifversionok()".
 mainprocces()
