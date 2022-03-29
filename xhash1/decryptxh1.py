@@ -2,7 +2,6 @@ import os
 import time
 import json
 import random
-from unittest import result
 import urllib.request
 
 #Files needed to run the program.
