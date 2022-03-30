@@ -78,9 +78,3 @@ Fixed:
 
 ### xh2 (xhash2)
  - vNone Latest
-
-### XHash (repository version)
-
- - ![2022-3-27 Latest](https://github.com/lolenseu/xhash/releases)
- - 2022-3-16
- - 2022-3-12
