@@ -9,10 +9,13 @@ XHash is a simple Encrypting and Decrypting tool build in Python.
 - xh1 or xhash1 are the version 1.0 of the tool.
 
 
-## How to clone
+## How to clone and install requirements
 ```BASHc
+sudo apt update && sudo apt upgrade -y
+sudo apt install git python3 python3-pip
 git clone https://github.com/lolenseu/xhash.git
 cd xhash
+python3 -m pip install -r requirements.txt
 chmod +x bash-scrypts/update.sh
 ```
 
@@ -59,7 +62,7 @@ Update:
 - Decrypted and Encrypted file storage
 
 Fixed:
-- Non readable keys
+- Can't read keys
 
 
 ## Future Updates
@@ -77,8 +80,7 @@ Fixed:
  - vNone Latest
 
 ### XHash (repository version)
-![Check Here!](https://github.com/lolenseu/xhash/releases)
 
- - 3-27-2022 Latest
- - 3-16-2022
- - 3-12-2022
+ - ![2022-3-27 Latest](https://github.com/lolenseu/xhash/releases)
+ - 2022-3-16
+ - 2022-3-12
