@@ -72,7 +72,7 @@ Fixed:
 ## Versions
 
 ### xh1 (xhash1)
- - v0.2 BETA Latest
+ - v0.2beta Latest
 
 ### xh2 (xhash2)
  - vNone Latest
