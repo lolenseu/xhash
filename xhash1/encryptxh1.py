@@ -3,6 +3,7 @@ import time
 import json
 import random
 import urllib.request
+from colored import fg
 
 #Files needed to run the program.
 version = json.loads(open('../src/xh1/version.json', "r").read())
@@ -40,10 +41,9 @@ def ifversionok():
 
 #Encrypting cli animation.
 def animation(starttime, strap, result):
-    os.system('clear')
     timeanimation = "%s sec" % (int(time.time()) - int(starttime))
     loadinganimation = "".join(random.choice("\\|/-"))
-    print(f"[{timeanimation}] Encrypting {loadinganimation} --> Writing {strap} {result}")
+    print(f"[{timeanimation}] Encrypting {loadinganimation} --> Writing [{strap}] {result}", end="\r")
 
 #Encrypting procces.
 def mainprocces():
