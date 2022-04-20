@@ -40,13 +40,15 @@ def ifversionok():
         exit()
 
 #Decrypting cli animation.
-def animation(starttime, procces, result):
+def animation(spiner_counter, starttime, procces, result):
+    spiner = "\\|/-"
+    loadinganimation = spiner[spiner_counter]
     timeanimation = "%s sec" % (int(time.time()) - int(starttime))
-    loadinganimation = "".join(random.choice("\\|/-"))
     print(f"[{timeanimation}] Decrypting {loadinganimation} --> Reading [{procces}] {result}", end="\r")
 
 #Decrypting procces.
 def mainprocces():
+    os.system('clear')
     global inputdata, workdata, data
 
     #Input file from the user.
@@ -91,6 +93,7 @@ def mainprocces():
     numsdata = data[2:]
     countdata = data[2:]
     countdata = len(countdata) / 3
+    spiner_counter = 0
     counter1 = 0
     counter2 = 0
     counter3 = 3
@@ -103,12 +106,16 @@ def mainprocces():
             counter2 += 3
             counter3 += 3
             result = 'ok!'
-            animation(starttime, procces, result)
+            if spiner_counter == 4:
+                spiner_counter = 0
+            animation(spiner_counter, starttime, procces, result)
+            spiner_counter += 1
         except:
             result = 'error!'
             os.system(f'rm -rf decrypted-files/{filename}')
-            animation(starttime, result, result)
-            print(f"[{result}] Can't Read \'{procces}\'!\nYour {workdata} are corrupted or \'{procces}\' are not in Dictionary.")
+            animation(spiner_counter, starttime, result, result)
+            print(f"\n[{result}] Can't Read \'{procces}\'!")
+            print(f"Your {workdata} are corrupted or \'{procces}\' are not in Dictionary.")
             print(f"Solution: Try to Decrypt your {workdata} to the version you encrypted.")
             exit()
 

@@ -40,9 +40,10 @@ def ifversionok():
         exit()
 
 #Encrypting cli animation.
-def animation(starttime, strap, result):
+def animation(spiner_counter, starttime, strap, result):
+    spiner = "\\|/-"
+    loadinganimation = spiner[spiner_counter]
     timeanimation = "%s sec" % (int(time.time()) - int(starttime))
-    loadinganimation = "".join(random.choice("\\|/-"))
     print(f"[{timeanimation}] Encrypting {loadinganimation} --> Writing [{strap}] {result}", end="\r")
 
 #Encrypting procces.
@@ -90,6 +91,7 @@ def mainprocces():
 
     #Starting the encrypting procces.
     countdata = len(data)
+    spiner_counter = 0
     counter = 0
     while counter < countdata:
         procces = data[counter]
@@ -98,12 +100,16 @@ def mainprocces():
             a.write(strap[2:])
             counter += 1
             result = 'ok!'
-            animation(starttime, strap, result)
+            if spiner_counter == 4:
+                spiner_counter = 0
+            animation(spiner_counter, starttime, strap, result)
+            spiner_counter += 1
         except:
             result = 'error!'
             os.system(f'rm -rf encrypted-files/{filename}')
-            animation(starttime, result, result)
-            print(f"[{result}] Can't Write \'{procces}\'!\nYour {workdata} not utf-8 format or \'{procces}\' are not in Dictionary.")
+            animation(spiner_counter, starttime, result, result,)
+            print(f"\n[{result}] Can't Write \'{procces}\'!")
+            print(f"Your {workdata} not utf-8 format or \'{procces}\' are not in Dictionary.")
             print(f"Solution: Check if your {workdata} contain a non-readable characters.")
             exit()
 
